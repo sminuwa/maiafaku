@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Albabello Trading Company Ltd</title>
+    <title>Maiafaku Nigeria Ltd</title>
     <link rel="icon" type="image/x-icon" href="{{ myAsset('master/assets/img/favicon.ico') }}"/>
     <!-- Common Styles Starts -->
     <link href="{{ myAsset('master/assets/line-awesome/css/line-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
@@ -52,7 +52,7 @@
         <div class="col-xl-5 col-lg-5 col-md-6">
             <div class="d-flex flex-column justify-content-between h-100 right-area">
                 <div class="  text-white ml-auto">
-                    <h3 class="header">Albabello Trading Company Ltd.</h3>
+                    <h3 class="header">Maiafaku Nigeria Ltd.</h3>
                 </div>
                 <div>
                     <form action="{{ route("auth.login.post") }}" method="post">
