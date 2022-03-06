@@ -160,7 +160,7 @@
                                     <label for="branch_id">Site</label>
                                     <select name="branch_id" id="branch_id" class="form-control" required>
                                         <option value="">Select Site</option>
-                                        @php $branches = \App\Models\Site::orderBy('name', 'asc')->get() @endphp
+                                        @php $branches = \App\Models\Branch::orderBy('name', 'asc')->get() @endphp
                                         @foreach($branches as $b)
                                             <option value="{{$b->id}}">{{$b->name}}</option>
                                         @endforeach

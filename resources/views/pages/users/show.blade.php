@@ -246,7 +246,7 @@
                                                 <label for="branch_id">Site</label>
                                                 <select name="branch_id" id="branch_id" class="form-control" required>
                                                     <option value="">Select Site</option>
-                                                    @php $branches = \App\Models\Site::orderBy('name', 'asc')->get() @endphp
+                                                    @php $branches = \App\Models\Branch::orderBy('name', 'asc')->get() @endphp
                                                     @foreach($branches as $branch)
                                                         <option value="{{$branch->id}}" {{ $user_info->branch_id==$branch->id?"selected":"" }}>{{$branch->name}}</option>
                                                     @endforeach
@@ -440,7 +440,7 @@
                                                 <label for="branch_id">Site</label>
                                                 <select readonly name="branch_id" id="branch_id" class="form-control" required>
                                                     <option value="">Select Site</option>
-                                                    @php $branches = \App\Models\Site::orderBy('name', 'asc')->get() @endphp
+                                                    @php $branches = \App\Models\Branch::orderBy('name', 'asc')->get() @endphp
                                                     @foreach($branches as $branch)
                                                         <option value="{{$branch->id}}" {{ $user_info->branch_id==$branch->id?"selected":"" }}>{{$branch->name}}</option>
                                                     @endforeach

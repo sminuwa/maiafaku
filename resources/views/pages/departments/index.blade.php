@@ -94,7 +94,7 @@
                                     <label>Site</label>
                                     <select name="branch_id" id="branch" class="form-control" style="height: auto;">
                                         <option value="">Select Site</option>
-                                        @foreach(\App\Models\Site::all() as $branch)
+                                        @foreach(\App\Models\Branch::all() as $branch)
                                             <option value="{{$branch->id}}">{{$branch->name}}</option>
                                         @endforeach
                                     </select>
