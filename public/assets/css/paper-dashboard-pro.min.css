@@ -10994,7 +10994,9 @@ img {
 }
 
 .sidebar[data-color=white] {
-    border-right: 1px solid #ddd
+    /*border-right: 1px solid #ddd*/
+    border-right: 1px solid #903a3f
+
 }
 
 .card-timeline .timeline {
