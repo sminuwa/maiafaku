@@ -2,7 +2,7 @@
     height: 100%;
     min-height: 100vh;
     letter-spacing: 0px;
-    background-image: linear-gradient(white, #e0e5ff);
+    background-image: linear-gradient(white, #ffb9b6);
 }
 .login-three-container{
     height: 100%;
@@ -339,7 +339,7 @@ form.digit-group {
         padding: 1.5rem 0rem 1.5rem 0rem !important;
     }
     .w-25 {
-        width: unset!important; 
+        width: unset!important;
     }
     .cp-container {
         flex-direction: column;
@@ -352,10 +352,10 @@ form.digit-group {
     }
     .main-login-three {
         min-height: 100vh;
-    } 
+    }
     .login-three-container .center-area div {
         margin-top: 20px;
-    }   
+    }
 }
 /* Tablet Media Query */
 @media (min-width: 600px) and (max-width: 1068px) {
@@ -366,7 +366,7 @@ form.digit-group {
         padding: 1.5rem 1.5rem 1.5rem 1.5rem !important;
     }
     .w-25 {
-        width: unset!important; 
+        width: unset!important;
     }
     .cp-container {
         flex-direction: column;
