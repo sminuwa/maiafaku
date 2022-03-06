@@ -83,7 +83,7 @@
                             <div class="col-md-12 pr-1">
                                 <div class="form-group">
                                     <label>Group Name</label>
-                                    <input type="text" class="form-control" placeholder="Branch Name"
+                                    <input type="text" class="form-control" placeholder="Site Name"
                                            value=""
                                            name="name" id="branch">
                                 </div>

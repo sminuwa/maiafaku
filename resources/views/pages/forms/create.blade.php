@@ -534,7 +534,7 @@
 `;
             let branch = `
                 <div class="form-group">
-                    @php $branches = \App\Models\Branch::all(); @endphp
+                    @php $branches = \App\Models\Site::all(); @endphp
                 <label>Department:</label>
                 <select class="form-control" name="branch" id="branch">
                     <option></option>

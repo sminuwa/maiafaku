@@ -8126,13 +8126,15 @@ body {
 }
 
 .navbar.navbar-transparent {
-    background-color: transparent !important;
+    /*background-color: transparent !important;*/
+    background: linear-gradient(118deg,#8f3b3f,rgb(255 0 0 / 70%));
     box-shadow: none;
     border-bottom: 1px solid #ddd
 }
 
 .navbar.navbar-transparent a:not(.dropdown-item):not(.btn) {
-    color: #66615b
+    /*color: #66615b*/
+    color:#ffffff;
 }
 
 .navbar.navbar-transparent a:not(.dropdown-item):not(.btn).disabled {
@@ -8145,7 +8147,8 @@ body {
 }
 
 .navbar.navbar-transparent .nav-item .nav-link:not(.btn) {
-    color: #66615b
+    /*color: #66615b;*/
+    color:#ffffff;
 }
 
 .navbar.navbar-transparent .nav-item.active .nav-link:not(.btn), .navbar.navbar-transparent .nav-item .nav-link:not(.btn):active, .navbar.navbar-transparent .nav-item .nav-link:not(.btn):focus, .navbar.navbar-transparent .nav-item .nav-link:not(.btn):focus:hover, .navbar.navbar-transparent .nav-item .nav-link:not(.btn):hover {
@@ -10711,11 +10714,13 @@ img {
 }
 
 .off-canvas-sidebar[data-color=white]:after, .sidebar[data-color=white]:after {
-    background: #fff
+    /*background: #fff*/
+    background: linear-gradient(118deg,#000000,rgb(255 0 0 / 70%))
 }
 
 .off-canvas-sidebar[data-color=white] .nav li a, .off-canvas-sidebar[data-color=white] .nav li a[data-toggle=collapse], .off-canvas-sidebar[data-color=white] .nav li a[data-toggle=collapse] i, .off-canvas-sidebar[data-color=white] .nav li a[data-toggle=collapse] ~ div > ul > li .sidebar-mini-icon, .off-canvas-sidebar[data-color=white] .nav li a[data-toggle=collapse] ~ div > ul > li > a, .off-canvas-sidebar[data-color=white] .nav li a i, .sidebar[data-color=white] .nav li a, .sidebar[data-color=white] .nav li a[data-toggle=collapse], .sidebar[data-color=white] .nav li a[data-toggle=collapse] i, .sidebar[data-color=white] .nav li a[data-toggle=collapse] ~ div > ul > li .sidebar-mini-icon, .sidebar[data-color=white] .nav li a[data-toggle=collapse] ~ div > ul > li > a, .sidebar[data-color=white] .nav li a i {
-    color: #66615b;
+    /*color: #66615b;*/
+    color:#ffffff;
     opacity: .7
 }
 
@@ -10724,7 +10729,7 @@ img {
 }
 
 .off-canvas-sidebar[data-color=white] .logo .simple-text, .sidebar[data-color=white] .logo .simple-text {
-    color: #66615b
+    color: #ffffff
 }
 
 .off-canvas-sidebar[data-color=white] .logo:after, .sidebar[data-color=white] .logo:after {
@@ -10845,7 +10850,7 @@ img {
     position: relative;
     float: right;
     width: calc(100% - 260px);
-    background-color: #f4f3ef;
+    background-color: #fff4f8;
     transition: all .5s cubic-bezier(.685, .0473, .346, 1)
 }
 

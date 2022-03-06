@@ -81,7 +81,7 @@
                                 <p class="text-left">
                                     <i>{{ $memo->raisedBy->fullName() }}</i><br>
                                     {{ strtoupper($memo->raisedBy->department()->name) }} Department<br>
-                                    {{ strtoupper($memo->raisedBy->branch()->name) }} Branch<br>
+                                    {{ strtoupper($memo->raisedBy->branch()->name) }} Site<br>
                                     {{--                            <small><i>{{ $minute->created_at }}</i></small>--}}
                                 </p>
                             </div>

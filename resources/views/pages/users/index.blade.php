@@ -37,7 +37,7 @@
                             <th>Number</th>
                             <th>Name</th>
                             <th>Department</th>
-                            <th>Branch</th>
+                            <th>Site</th>
                             <th>&nbsp;</th>
                         </tr>
                         </thead>

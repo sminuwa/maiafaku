@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Branch</label>
+                                        <label for="name">Site</label>
                                         <select type="text" name="branch_id" id="branch_id" class="form-control">
                                             <option value="">--branch--</option>
                                             @foreach($branches as $branch)

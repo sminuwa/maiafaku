@@ -9,7 +9,7 @@
             <div class="col-md-3 mb-2">
                 <div class="card border-info mx-sm-1 p-3">
                     <div class="card border-info shadow text-info p-3 my-card"><span class="fa fa-dashboard" aria-hidden="true"></span></div>
-                    <div class="text-info text-center mt-4"><h5>BRANCHES</h5></div>
+                    <div class="text-info text-center mt-4"><h5>SITES</h5></div>
                     <div class="text-info text-center mt-1"><h1>{{ $branches }}</h1></div>
                     <a href="{{ route('branch.index') }}" class="btn btn-info btn-sm">Manage <i class="nc-icon nc-settings"></i></a>
                 </div>
@@ -76,7 +76,7 @@
                 </div>
             </div>
         @endif
-        @if($user->canAccess('vehicles.index'))
+        {{--@if($user->canAccess('vehicles.index'))
             <div class="col-md-3 mb-2">
                 <div class="card border-warning mx-sm-1 p-3">
                     <div class="card border-warning shadow text-warning p-3 my-card"><span class="fa fa-truck" aria-hidden="true"></span></div>
@@ -110,7 +110,7 @@
 
     <h3 class="mb-4 mt-2"><i class="nc-icon nc-settings-gear-65"></i> Configurations</h3>
     <div class="row w-100">
-{{--        @if($user->canAccess('vehicles.location_route.index'))--}}
+--}}{{--        @if($user->canAccess('vehicles.location_route.index'))--}}{{--
             <div class="col-md-3 mb-2">
                 <div class="card border-info mx-sm-1 p-3">
                     <div class="card border-info shadow text-info p-3 my-card"><span class="fa fa-road" aria-hidden="true"></span></div>
@@ -118,7 +118,7 @@
                     <a href="{{ route('vehicles.location_route.index') }}" class="btn btn-info btn-sm">Configure <i class="nc-icon nc-settings-gear-65"></i></a>
                 </div>
             </div>
-{{--        @endif--}}
+--}}{{--        @endif--}}{{--
         <div class="col-md-3 mb-2">
             <div class="card border-success mx-sm-1 p-3">
                 <div class="card border-success shadow text-success p-3 my-card"><span class="fa fa-tint" aria-hidden="true">&nbsp;</span></div>
@@ -126,7 +126,7 @@
                 <a href="{{ route('vehicles.fuel_price.index') }}" class="btn btn-success btn-sm">Configure <i class="nc-icon nc-settings-gear-65"></i></a>
             </div>
         </div>
-    </div>
+    </div>--}}
 @endsection
 
 @section('css')

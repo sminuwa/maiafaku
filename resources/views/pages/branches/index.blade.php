@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-6">
-                            <h5 class="card-title">Branches</h5>
+                            <h5 class="card-title">Sites</h5>
                         </div>
                         <div class="col-md-6 text-right" >
                             <a href="javascript:history.back();" class="btn btn-warning btn-sm">
@@ -72,7 +72,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Manage Branch</h4>
+                    <h4 class="modal-title">Manage Site</h4>
                 </div>
                 <div class="modal-body">
                     <form method="post" action="{{ route('branch.store') }}">
@@ -81,8 +81,8 @@
                         <div class="row">
                             <div class="col-md-12 pr-1">
                                 <div class="form-group">
-                                    <label>Branch Name</label>
-                                    <input type="text" class="form-control" placeholder="Branch Name"
+                                    <label>Site Name</label>
+                                    <input type="text" class="form-control" placeholder="Site Name"
                                            value=""
                                            name="name" id="branch">
                                 </div>
@@ -91,8 +91,8 @@
                         <div class="row">
                             <div class="col-md-12 pr-1">
                                 <div class="form-group">
-                                    <label>Branch Code</label>
-                                    <input type="text" class="form-control" placeholder="Branch Code"
+                                    <label>Site Code</label>
+                                    <input type="text" class="form-control" placeholder="Site Code"
                                            value=""
                                            name="code" id="code">
                                 </div>

@@ -157,10 +157,10 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="branch_id">Branch</label>
+                                    <label for="branch_id">Site</label>
                                     <select name="branch_id" id="branch_id" class="form-control" required>
-                                        <option value="">Select Branch</option>
-                                        @php $branches = \App\Models\Branch::orderBy('name', 'asc')->get() @endphp
+                                        <option value="">Select Site</option>
+                                        @php $branches = \App\Models\Site::orderBy('name', 'asc')->get() @endphp
                                         @foreach($branches as $b)
                                             <option value="{{$b->id}}">{{$b->name}}</option>
                                         @endforeach
