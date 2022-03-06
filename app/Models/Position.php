@@ -17,7 +17,6 @@ class Position extends Model
     */
     protected $table = 'positions';
 
-    public $incrementing = false;
     /**
     * Mass assignable columns
     */

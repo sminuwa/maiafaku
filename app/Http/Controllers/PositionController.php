@@ -64,12 +64,11 @@ class PositionController extends Controller
     public function store(Request $request)
     {
 //        return $request;
-        $model=new Position;
-        $model->id = newId();
-        if($request->p_id)
-            $model =Position::find($request->p_id);
-        $model->fill($request->all());
-
+        $model = Position::find($request->p_id);
+        if(!$model)
+            $model = new Position;
+        $model->name = $request->name;
+        $model->code = $request->code;
         if ($model->save()) {
             //activity()->on($model)->log('Position created / edited');
             session()->flash('app_message', 'Position saved successfully');

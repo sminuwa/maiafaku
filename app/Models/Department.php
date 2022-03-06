@@ -22,7 +22,6 @@ class Department extends Model
      */
     protected $table = 'departments';
 
-    public $incrementing = false;
     /**
      * Mass assignable columns
      */

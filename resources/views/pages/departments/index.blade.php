@@ -42,7 +42,7 @@
                                     <td>{{ $record->name }}</td>
                                     <td>{{ $record->branch()->name }}</td>
                                     <td class="text-right" >
-                                        <a class="btn btn-outline-secondary btn-sm editP" href="#" branch="{{$record->branch_id}}"  department="{{$record->name}}" pid="{{$record->id}}">
+                                        <a class="btn btn-outline-secondary btn-sm editP" href="#" branch="{{$record->branch_id}}" code="{{$record->code}}"  department="{{$record->name}}" pid="{{$record->id}}">
                                             Edit
                                         </a>
                                         &nbsp
@@ -83,14 +83,6 @@
                         <div class="row">
                             <div class="col-md-12 pr-1">
                                 <div class="form-group">
-                                    <label>Department</label>
-                                    <input type="text" class="form-control" placeholder="Department" style="height: auto;"
-                                           value=""
-                                           name="name" id="department">
-                                </div>
-                            </div>
-                            <div class="col-md-12 pr-1">
-                                <div class="form-group">
                                     <label>Site</label>
                                     <select name="branch_id" id="branch" class="form-control" style="height: auto;">
                                         <option value="">Select Site</option>
@@ -100,6 +92,23 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-md-12 pr-1">
+                                <div class="form-group">
+                                    <label>Department</label>
+                                    <input type="text" class="form-control" placeholder="Department" style="height: auto;"
+                                           value=""
+                                           name="name" id="department">
+                                </div>
+                            </div>
+                            <div class="col-md-12 pr-1">
+                                <div class="form-group">
+                                    <label>Code</label>
+                                    <input type="text" class="form-control" placeholder="Code" style="height: auto;"
+                                           value=""
+                                           name="code" id="code">
+                                </div>
+                            </div>
+
                         </div>
                         <div class="row">
                             <div class="col-md-12">
@@ -127,10 +136,12 @@
                     $("#p_id").val($(this).attr('pid'));
                     $("#department").val($(this).attr('department'));
                     $("#branch").val($(this).attr('branch'));
+                    $("#code").val($(this).attr('code'));
                 }else{
                     $("#p_id").val('');
                     $("#department").val('');
                     $("#branch").val('');
+                    $("#code").val('code');
                 }
 
                 $("#add-staff-modal").modal();

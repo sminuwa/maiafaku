@@ -65,12 +65,11 @@ class BranchController extends Controller
      */
     public function store(Request $request)
     {
-        $model=new Branch;
-        $model->id = newId();
-        if($request->p_id)
-            $model =Branch::find($request->p_id);
-        $model->fill($request->all());
-
+        $model =Branch::find($request->p_id);
+        if(!$model)
+            $model=new Branch;
+        $model->name = $request->name;
+        $model->code = $request->code;
         if ($model->save()) {
             //activity()->on($model)->log('Created / Edited Branch');
             session()->flash('app_message', 'Branch saved successfully');

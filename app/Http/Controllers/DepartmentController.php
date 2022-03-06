@@ -66,12 +66,12 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        $model=new Department;
-        $model->id = newId();
-        if($request->p_id)
-            $model =Department::find($request->p_id);
-        $model->fill($request->all());
-
+        $model =Department::find($request->p_id);
+        if(!$model)
+            $model=new Department;
+        $model->branch_id = $request->branch_id;
+        $model->name = $request->name;
+        $model->code = $request->code;
         if ($model->save()) {
 
             session()->flash('app_message', 'Department saved successfully');
