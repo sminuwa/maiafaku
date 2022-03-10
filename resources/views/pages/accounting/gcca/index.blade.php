@@ -125,7 +125,7 @@
                     <h4 class="modal-title">Manage GCCA</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ route('accounts.gccas.destroy') }}">
+                    <form method="post" action="{{ route('accounts.gccas.destroy', 1) }}">
                         @csrf
                         <input type="hidden" value="" name="gcca_id" id="gcca_id"/>
                         <div class="row">
