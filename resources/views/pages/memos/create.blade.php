@@ -29,9 +29,23 @@
                         <input type="hidden" name="draft" class="draft-box">
                         <input type="hidden" name="draft_id" class="draft-id">
                         <div class="form-group">
-                            <label>Send To:</label>
-                            <select class="form-control mySelect3" name="sendto">
-                            </select>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label>Send To:</label>
+                                    <select class="form-control mySelect3" name="sendto">
+                                    </select>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>Site:</label>
+                                    <select class="form-control" name="site_id">
+                                        <option>--</option>
+                                        @php $sites = \App\Models\Branch::orderBy('name', 'asc')->get(); @endphp
+                                        @foreach($sites as $site)
+                                            <option value="{{ $site->id }}">{{ $site->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">

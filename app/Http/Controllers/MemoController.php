@@ -205,6 +205,7 @@ class MemoController extends Controller
 					$draft = new MemoDraft();
 				$draft->id = newId();
 				$draft->title = $request->title;
+				$draft->site_id = $request->site_id;
 				$draft->body = $request->body;
 				$draft->user_id = auth()->id();
 				$draft->save();
