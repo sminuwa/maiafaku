@@ -30,6 +30,9 @@ class AccountGccaController extends Controller
     }
 
     public function destroy(AccountGcca $gcca){
-        return $gcca;
+        if($gcca->delete()){
+            return back()->with('success', 'GCCA deleted successfully');
+        }
+        return back()->with('error', 'Something went wrong');
     }
 }

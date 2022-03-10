@@ -81,7 +81,7 @@
                 <div class="card border-danger mx-sm-1 p-3">
                     <div class="card border-danger shadow text-danger p-3 my-card"><span class="fa fa-users" aria-hidden="true"></span></div>
                     <div class="text-danger text-center mt-4"><h5>GCCAs</h5></div>
-                    <div class="text-danger text-center mt-1"><h1>{{ $gl }}</h1></div>
+                    <div class="text-danger text-center mt-1"><h1>{{ $gccas }}</h1></div>
                     <a href="{{ route('accounts.gccas.index') }}" class="btn btn-danger btn-sm">Manage <i class="nc-icon nc-settings"></i></a>
                 </div>
             </div>

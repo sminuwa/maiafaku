@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AccountGcca;
 use App\Models\AccountLedger;
 use App\Models\Branch;
 use App\Models\Department;
@@ -29,7 +30,7 @@ class ManageController extends Controller
         $routes = Route::count();
         $messages = Message::where('user_id',auth()->id())->count();
         $staff = User::count();
-        $gl = AccountLedger::count();
+        $gccas = AccountGcca::count();
         return view('pages.manage.index',
             compact(
                 'branches',
@@ -42,7 +43,7 @@ class ManageController extends Controller
                 'routes',
                 'messages',
                 'staff',
-                'gl'
+                'gccas'
             ));
     }
 }

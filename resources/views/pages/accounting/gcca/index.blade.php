@@ -122,29 +122,18 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Manage GCCA</h4>
+                    <h4 class="modal-title">Are you sure you want to delete?</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ route('accounts.gccas.destroy', 1) }}">
+                    <form class="delete-gcca-form" method="post" action="">
                         @csrf
+                        {{ method_field('DELETE') }}
                         <input type="hidden" value="" name="gcca_id" id="gcca_id"/>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="prefix">Prefix</label>
-                                    <input type="text" name="prefix" id="prefix" class="form-control" placeholder="Prefix (e.g. A10">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="code">Code</label>
-                                    <input type="text" name="code" id="code" class="form-control" placeholder="Code">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <input type="text" name="description" id="description" class="form-control" placeholder="Description">
+                                <div class="form-group text-center">
+                                    <button type="button" class="btn btn-default btn-sm waves-effect" data-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-danger btn-sm">Yes, Delete!</button>
                                 </div>
                             </div>
                         </div>
@@ -179,6 +168,14 @@
                 $("#add-gcca-modal").modal();
             });
             $('#table_id').DataTable();
+
+            $('.delete').on('click', function(){
+                let gcca_id = $(this).attr('id')
+                let url = "{{ route('accounts.gccas.destroy', ':id') }}"
+                url = url.replace(':id', gcca_id);
+                $('.delete-gcca-form').attr('action', url)
+                $("#delete-gcca-modal").modal();
+            })
         });
     </script>
 @endpush
