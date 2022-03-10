@@ -181,7 +181,6 @@ class MemoController extends Controller
 	}
 
 	public function store(Request $request) {
-
         /*if($request->fuel_option)
             return $request;*/
 
@@ -205,7 +204,6 @@ class MemoController extends Controller
 					$draft = new MemoDraft();
 				$draft->id = newId();
 				$draft->title = $request->title;
-				$draft->site_id = $request->site_id;
 				$draft->body = $request->body;
 				$draft->user_id = auth()->id();
 				$draft->save();
@@ -230,6 +228,7 @@ class MemoController extends Controller
 				$copy = implode(',', $cp);
 			}
 			$model = new Memo;
+            $model->site_id = $request->site_id;
 			$model->reference = Memo::newReference();
 			$model->title = $request->title;
             switch($type){
