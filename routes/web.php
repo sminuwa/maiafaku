@@ -88,6 +88,7 @@ Route::middleware(['auth:web'])->group(function(){
             Route::get('/d', "BranchController@departments")->name("branch.departments");
             Route::get('/', "UserController@index")->name("branch.department");
         });
+
         Route::prefix('/group')->group(function () {
             Route::get('/show/{id}', "GroupController@show")->name("group.single");
             Route::post('/destroy/{id}', "GroupController@destroy")->name("group.destroy");
@@ -131,6 +132,12 @@ Route::middleware(['auth:web'])->group(function(){
             Route::get('/', 'ExpenditureCodeController@index')->name('expenditure_codes.index');
             Route::post('/', 'ExpenditureCodeController@store')->name('expenditure_codes.store');
             Route::get('/select2Ajax', 'ExpenditureCodeController@select2Ajax')->name('expenditure_codes.select2Ajax');
+        });
+
+        Route::prefix('/gccas')->group(function(){
+            Route::get('/', 'AccountGccaController@index')->name('accounts.gccas.index');
+            Route::post('/', 'AccountGccaController@store')->name('accounts.gccas.store');
+            Route::delete('/{gcca}', 'AccountGccaController@destroy')->name('accounts.gccas.destroy');
         });
 
         Route::prefix('/newsfeed')->group(function(){

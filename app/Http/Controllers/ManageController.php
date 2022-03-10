@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AccountLedger;
 use App\Models\Branch;
 use App\Models\Department;
 use App\Models\Group;
@@ -28,6 +29,7 @@ class ManageController extends Controller
         $routes = Route::count();
         $messages = Message::where('user_id',auth()->id())->count();
         $staff = User::count();
+        $gl = AccountLedger::count();
         return view('pages.manage.index',
             compact(
                 'branches',
@@ -39,7 +41,8 @@ class ManageController extends Controller
                 'vehicles',
                 'routes',
                 'messages',
-                'staff'
+                'staff',
+                'gl'
             ));
     }
 }
