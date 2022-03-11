@@ -134,10 +134,18 @@ Route::middleware(['auth:web'])->group(function(){
             Route::get('/select2Ajax', 'ExpenditureCodeController@select2Ajax')->name('expenditure_codes.select2Ajax');
         });
 
-        Route::prefix('/gccas')->group(function(){
-            Route::get('/', 'AccountGccaController@index')->name('accounts.gccas.index');
-            Route::post('/', 'AccountGccaController@store')->name('accounts.gccas.store');
-            Route::delete('/{gcca}', 'AccountGccaController@destroy')->name('accounts.gccas.destroy');
+        Route::prefix('accounts')->group(function(){
+            Route::prefix('/gccas')->group(function(){
+                Route::get('/', 'AccountGccaController@index')->name('accounts.gccas.index');
+                Route::post('/', 'AccountGccaController@store')->name('accounts.gccas.store');
+                Route::delete('/{gcca}', 'AccountGccaController@destroy')->name('accounts.gccas.destroy');
+            });
+
+            Route::prefix('/ledger')->group(function(){
+                Route::get('/', 'AccountLedgerController@index')->name('accounts.ledger.index');
+                Route::post('/', 'AccountLedgerController@store')->name('accounts.ledger.store');
+                Route::delete('/{ledger}', 'AccountLedgerController@destroy')->name('accounts.ledger.destroy');
+            });
         });
 
         Route::prefix('/newsfeed')->group(function(){

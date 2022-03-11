@@ -31,6 +31,7 @@ class ManageController extends Controller
         $messages = Message::where('user_id',auth()->id())->count();
         $staff = User::count();
         $gccas = AccountGcca::count();
+        $ledger = AccountLedger::count();
         return view('pages.manage.index',
             compact(
                 'branches',
@@ -43,7 +44,7 @@ class ManageController extends Controller
                 'routes',
                 'messages',
                 'staff',
-                'gccas'
+                'gccas', 'ledger'
             ));
     }
 }

@@ -8,13 +8,13 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <h5 class="card-title">Manage GCCA</h5>
+                            <h5 class="card-title">Manage Account Ledger</h5>
                         </div>
                         <div class="col-md-6 text-right" >
                             <a href="javascript:history.back();" class="btn btn-warning btn-sm">
                                 <span class="fa fa-close"></span> Close
                             </a>
-                            <a href="#" class="btn btn-success btn-sm btn-flat add-gcca-btn">
+                            <a href="#" class="btn btn-success btn-sm btn-flat add-ledger-btn">
                               <span class="btn-label">
                                 <i class="nc-icon nc-paper"></i>
                               </span>
@@ -34,28 +34,28 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Prefix</th>
                             <th>Code</th>
+                            <th>GCCA</th>
                             <th>Description</th>
                             <th class="no-content"></th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($gccas as $gcca)
+                        @foreach($ledgers as $ledger)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $gcca->prefix }}</td>
-                                <td>{{ $gcca->code }}</td>
-                                <td>{{ $gcca->description }}</td>
+                                <td>{{ $ledger->code }}</td>
+                                <td>{{ $ledger->gcca }}</td>
+                                <td>{{ $ledger->description }}</td>
                                 <td class="text-right">
                                     <a href="#" title="Edit" class="btn btn-outline-success btn-sm cursor-pointer edit"
-                                       id="{{ $gcca->id }}"
-                                       prefix="{{ $gcca->prefix }}"
-                                       code="{{ $gcca->code }}"
-                                       description="{{ $gcca->description }}"
+                                       id="{{ $ledger->id }}"
+                                       code="{{ $ledger->code }}"
+                                       gcca="{{ $ledger->gcca }}"
+                                       description="{{ $ledger->description }}"
                                     ><i class="las la-edit"></i>Edit</a>
                                     <a href="#" title="Delete" class="btn btn-outline-danger btn-sm cursor-pointer delete"
-                                       id="{{ $gcca->id }}"><i class="las la-trash">Delete</i></a>
+                                       id="{{ $ledger->id }}"><i class="las la-trash">Delete</i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -69,23 +69,28 @@
         </div>
     </div>
 
-    <div class="modal fade" id="add-gcca-modal" role="dialog">
+    <div class="modal fade" id="add-ledger-modal" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Manage GCCA</h4>
+                    <h4 class="modal-title">Manage Account Ledger</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="{{ route('accounts.gccas.store') }}">
+                    <form method="post" action="{{ route('accounts.ledger.store') }}">
                         @csrf
-                        <input type="hidden" value="" name="gcca_id" id="gcca_id"/>
+                        <input type="hidden" value="" name="ledger_id" id="ledger_id"/>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="prefix">Prefix</label>
-                                    <input type="text" name="prefix" id="prefix" class="form-control" placeholder="Prefix (e.g. A10">
+                                    <label for="gcca">GCCA</label>
+                                    <select type="text" name="gcca" id="gcca" class="form-control">
+                                        @php $gccas = \App\Models\AccountGcca::orderBy('description', 'asc')->get() @endphp
+                                        @foreach($gccas as $gcca)
+                                            <option value="{{ $gcca->code }}">{{ $gcca->description }} ({{$gcca->code}})</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -106,7 +111,7 @@
                             <div class="col-md-12">
                                 <div class="form-group text-right">
                                     <button class="btn btn-info btn-sm">Save</button>
-{{--                                    <button type="button" class="btn btn-default btn-sm waves-effect" data-dismiss="modal">Close</button>--}}
+                                    {{--                                    <button type="button" class="btn btn-default btn-sm waves-effect" data-dismiss="modal">Close</button>--}}
                                 </div>
                             </div>
                         </div>
@@ -116,7 +121,7 @@
 
         </div>
     </div>
-    <div class="modal fade" id="delete-gcca-modal" role="dialog">
+    <div class="modal fade" id="delete-ledger-modal" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -125,7 +130,7 @@
                     <h4 class="modal-title">Are you sure you want to delete?</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="delete-gcca-form" method="post" action="">
+                    <form class="delete-ledger-form" method="post" action="">
                         @csrf
                         {{ method_field('DELETE') }}
                         <div class="row">
@@ -147,33 +152,33 @@
 @push('js')
     <script>
         $(document).ready(function(){
-            $(".add-gcca-btn, .edit").on("click",function (e) {
-                let gcca_id = $(this).attr('id')
-                let prefix = $(this).attr('prefix')
+            $(".add-ledger-btn, .edit").on("click",function (e) {
+                let ledger_id = $(this).attr('id')
                 let code = $(this).attr('code')
+                let gcca = $(this).attr('gcca')
                 let description = $(this).attr('description')
-                if(gcca_id){
-                    $("#gcca_id").val(gcca_id);
-                    $("#prefix").val(prefix);
+                if(ledger_id){
+                    $("#ledger_id").val(ledger_id);
                     $("#code").val(code);
+                    $("#gcca").val(gcca);
                     $("#description").val(description);
                 }else{
-                    $("#gcca_id").val('');
-                    $("#prefix").val('');
+                    $("#ledger_id").val('');
                     $("#code").val('');
+                    $("#gcca").val('');
                     $("#description").val('');
                 }
 
-                $("#add-gcca-modal").modal();
+                $("#add-ledger-modal").modal();
             });
             $('#table_id').DataTable();
 
             $('.delete').on('click', function(){
-                let gcca_id = $(this).attr('id')
-                let url = "{{ route('accounts.gccas.destroy', ':id') }}"
-                url = url.replace(':id', gcca_id);
-                $('.delete-gcca-form').attr('action', url)
-                $("#delete-gcca-modal").modal();
+                let ledger_id = $(this).attr('id')
+                let url = "{{ route('accounts.ledger.destroy', ':id') }}"
+                url = url.replace(':id', ledger_id);
+                $('.delete-ledger-form').attr('action', url)
+                $("#delete-ledger-modal").modal();
             })
         });
     </script>
